@@ -19,9 +19,9 @@ public class index extends javax.swing.JFrame {
     /**
      * Creates new form index
      */
-    String selezione;
-    Playlist p = new Playlist();
-    GestorePlaylist gp;
+    private String selezione; 
+    private Playlist p = new Playlist();
+    private GestorePlaylist gp;
     
     public index() throws Exception {
         this.gp = new GestorePlaylist();
@@ -266,23 +266,23 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void comboSelezioneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSelezioneActionPerformed
-        // TODO add your handling code here:
+      // TODO add your handling code here:
         selezione = comboSelezione.getSelectedItem().toString(); //assegno il valore scelto dall'utente a valueSelezione
-        
+
         if(selezione.equals("Per Artista")){
-            comboArtista.setEnabled(true);
-            gp.selectByArtista(comboArtista.getSelectedItem().toString());
+            comboArtista.setEnabled(true);//abilita il menu a tendina degli artisti
+            gp.selectByArtista(comboArtista.getSelectedItem().toString());//chiama la funzione passandole il contenuto della cella artista
         }
         else{
-            comboArtista.setEnabled(false);
+            comboArtista.setEnabled(false); //disabilita il menu a tendina dell'artista
         }
-        
+
         if(selezione.equals("Per Genere")){
-            comboGenere.setEnabled(true);
-            gp.selectByGenere(comboGenere.getSelectedItem().toString());
+            comboGenere.setEnabled(true);//abilita il menu a tendina dei generi
+            gp.selectByGenere(comboGenere.getSelectedItem().toString());//chiama la funzione passandole il contenuto della cella genere
         }
         else{
-            comboGenere.setEnabled(false);
+            comboGenere.setEnabled(false);//disabilita il menu a tendina dei generi
         }
         
     }//GEN-LAST:event_comboSelezioneActionPerformed
@@ -293,10 +293,10 @@ public class index extends javax.swing.JFrame {
         buttonPlaylist.setEnabled(true);//abilità il pulsante di visualizzazione
     }//GEN-LAST:event_fineActionPerformed
     
-    private void visualizza(){
+    private void visualizza(){  //Visualizza nel pannello di testo il messaggio di aggiunta brani
         String txt = "";
         txt += gp.getMessaggio() + "\n";
-        this.stampa.setText(txt);
+        this.stampa.setText(txt); // serve a mandare in output la stringa al pannello di testo
     }
     
     private void comboArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboArtistaActionPerformed
@@ -313,13 +313,13 @@ public class index extends javax.swing.JFrame {
         gp.visuaCanzoni();
         String txt = "";
         txt += gp.getCanzoni();
-        this.stampa.setText(txt);
+        this.stampa.setText(txt); //stampa la stringa canzoni, che contiene l'elenco delle canzoni della playlist
     }//GEN-LAST:event_buttonPlaylistActionPerformed
 
     private void buttonSvuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSvuotaActionPerformed
         // TODO add your handling code here:
         String txt="";
-        this.stampa.setText(txt);
+        this.stampa.setText(txt);//stampa una stringa vuota
     }//GEN-LAST:event_buttonSvuotaActionPerformed
 
     /**

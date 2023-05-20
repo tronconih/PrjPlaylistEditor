@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public final class Playlist {
     
-    public ArrayList<Traccia> vet = new ArrayList<>();
+    private ArrayList<Traccia> vet = new ArrayList<>();
 
     public void aggiungiTraccia(Traccia t){
         vet.add(t);

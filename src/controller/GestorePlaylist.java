@@ -21,14 +21,12 @@ import model.Traccia;
  * @author studente
  */
 public final class GestorePlaylist {
-    
-    int cont = 0;
-    String messaggio= "";
-    String canzoni = "";
     Scanner scan = new Scanner(System.in);  // Create a Scanner object
-    
-    public Playlist p = new Playlist();
-    ArrayList <Traccia> t = new ArrayList <>();
+    private int cont = 0;
+    private String messaggio= "";
+    private String canzoni = "";
+    private Playlist p = new Playlist();
+    private ArrayList <Traccia> t = new ArrayList <>();
     private String scelta, sceltaGenere, sceltaArtista;
     
     
@@ -316,7 +314,7 @@ public final class GestorePlaylist {
     
     
     public void writeToFile(Playlist p) {
-        ArrayList<Traccia> data = p.vet;
+        ArrayList<Traccia> data = p.getPlaylist();
 
         String filePath = "playlistprecedente.csv";
 
